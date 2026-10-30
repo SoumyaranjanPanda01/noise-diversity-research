@@ -1,89 +1,97 @@
-"""Semantic and contextual perturbations: Distractor and Synonym Substitution."""
+"""Semantic perturbations: Contextual Distractor and Synonym Substitution."""
 
 import random
 import re
+import nltk
+from nltk.corpus import wordnet
 
-# Verified neutral, label-independent distractor sentences
-DISTRACTOR_POOL = [
-    "The 2024 Summer Olympics were hosted in Paris.",
-    "Mount Everest is the highest mountain above sea level.",
-    "Honey never actually spoils if stored properly.",
-    "The Pacific Ocean is the largest and deepest ocean basin.",
+# Ensure wordnet resources are present
+try:
+    nltk.data.find("corpora/wordnet")
+except LookupError:
+    nltk.download("wordnet", quiet=True)
+    nltk.download("omw-1.4", quiet=True)
+
+NEUTRAL_DISTRACTORS = [
     "Photosynthesis is the process used by plants to convert light into energy.",
-    "The human heart pumps roughly 2,000 gallons of blood each day.",
     "Mercury is the smallest planet in our solar system.",
-    "Paper was originally invented during the Han dynasty in China.",
+    "Paris hosted the Summer Olympic Games in 2024.",
+    "The Pacific Ocean is the largest and deepest ocean basin on Earth.",
+    "The printing press was developed by Johannes Gutenberg in the fifteenth century.",
+    "Mount Everest is the highest mountain peak above sea level.",
+    "Jupiter has the shortest day of all the planets in the solar system.",
+    "Honey never completely spoils if kept in an airtight container.",
 ]
 
-# Lightweight synonym dictionary for common descriptive/relational words
-SYNONYM_MAP = {
-    "large": "big",
-    "big": "large",
-    "small": "tiny",
-    "tiny": "small",
-    "quick": "rapid",
-    "fast": "rapid",
-    "rapid": "fast",
-    "accurate": "correct",
-    "correct": "accurate",
-    "begin": "start",
-    "start": "begin",
-    "create": "produce",
-    "produce": "create",
-    "build": "construct",
-    "construct": "build",
-    "difficult": "challenging",
-    "hard": "difficult",
-    "important": "significant",
-    "primary": "main",
-    "main": "primary",
-}
 
-
-def apply_distractor(text: str, seed: int | None = None) -> str:
-    """Inserts a fluent, irrelevant sentence into the text context.
-    
-    Position is randomized across beginning, middle, or end.
-    """
+def apply_distractor(
+    text: str, position: str = "suffix", seed: int | None = None
+) -> str:
+    """Inserts a fluent, irrelevant distractor sentence into the input."""
     if not text:
         return text
 
     rng = random.Random(seed)
-    distractor = rng.choice(DISTRACTOR_POOL)
+    distractor = rng.choice(NEUTRAL_DISTRACTORS)
 
-    # Split into sentences or rough chunks
-    sentences = [s.strip() for s in re.split(r"(?<=[.!?])\s+", text) if s.strip()]
+    chosen_pos = position
+    if position == "random":
+        chosen_pos = rng.choice(["prefix", "suffix"])
 
-    if not sentences:
+    if chosen_pos == "prefix":
         return f"{distractor} {text}"
-
-    insert_idx = rng.randint(0, len(sentences))
-    sentences.insert(insert_idx, distractor)
-
-    return " ".join(sentences)
+    return f"{text} {distractor}"
 
 
-def apply_synonym(text: str, replace_prob: float = 0.3, seed: int | None = None) -> str:
-    """Replaces words with synonyms using a curated label-preserving dictionary."""
+def get_wordnet_synonyms(word: str) -> list[str]:
+    """Retrieves single-word lemmas from WordNet."""
+    syns = set()
+    for syn in wordnet.synsets(word):
+        for lemma in syn.lemmas():
+            name = lemma.name().replace("_", " ")
+            if name.lower() != word.lower() and " " not in name:
+                syns.add(name)
+    return list(syns)
+
+
+def apply_synonym(
+    text: str, replace_prob: float = 0.3, seed: int | None = None
+) -> str:
+    """Replaces eligible non-stop content words with synonyms from WordNet."""
     if not text:
         return text
 
     rng = random.Random(seed)
-    words = text.split()
-    perturbed_words = []
+    # Basic stopwords to avoid flipping grammatical structure or core interrogatives
+    skip_words = {
+        "is", "are", "was", "were", "do", "does", "did", "not", "the", "a", "an",
+        "of", "on", "in", "to", "for", "with", "at", "by", "from", "up", "about",
+        "than", "into", "over", "after", "what", "which", "who", "when", "where", "why", "how"
+    }
 
-    for word in words:
-        clean_word = word.strip(".,!?;:\"'").lower()
-        if clean_word in SYNONYM_MAP and rng.random() < replace_prob:
-            replacement = SYNONYM_MAP[clean_word]
-            # Preserve capitalization
-            if word[0].isupper():
-                replacement = replacement.capitalize()
-            # Preserve trailing punctuation
-            if word and word[-1] in ".,!?;:":
-                replacement = replacement + word[-1]
-            perturbed_words.append(replacement)
+    tokens = re.findall(r"\w+|[^\w\s]", text)
+    transformed = []
+
+    for tok in tokens:
+        lower = tok.lower()
+        if lower.isalpha() and lower not in skip_words and rng.random() < replace_prob:
+            synonyms = get_wordnet_synonyms(lower)
+            if synonyms:
+                chosen = rng.choice(synonyms)
+                if tok.isupper():
+                    chosen = chosen.upper()
+                elif tok[0].isupper():
+                    chosen = chosen.capitalize()
+                transformed.append(chosen)
+                continue
+        transformed.append(tok)
+
+    # Reconstruct string
+    result = ""
+    for tok in transformed:
+        if not result or re.match(r"[^\w\s]", tok):
+            result += tok
         else:
-            perturbed_words.append(word)
+            result += " " + tok
 
-    return " ".join(perturbed_words)
+    return result
