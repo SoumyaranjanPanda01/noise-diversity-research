@@ -28,6 +28,11 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+import os  # noqa: E402
+
+# Must be set before CUDA initialises; reduces fragmentation with variable-length batches.
+os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
+
 import torch  # noqa: E402
 
 from src.experiment.conditions import CONDITIONS  # noqa: E402
@@ -72,7 +77,7 @@ def main():
     ap.add_argument("--seed", type=int, default=None)
     ap.add_argument("--config", default="configs/train_config.json")
     ap.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
-    ap.add_argument("--micro-bs", type=int, default=None, help="micro batch (default 16 on GPU, 4 on CPU)")
+    ap.add_argument("--micro-bs", type=int, default=None, help="micro batch; grads are accumulated to effective_batch_size (default 4: 16 OOMs a 15 GB T4)")
     ap.add_argument("--eval-bs", type=int, default=16)
     ap.add_argument("--max-steps", type=int, default=None, help="debug only: cap optimizer steps")
     ap.add_argument("--eval-limit", type=int, default=None, help="debug only: first N items per eval set")
@@ -98,7 +103,7 @@ def main():
     run_dir.mkdir(parents=True, exist_ok=True)
     if args.threads:
         torch.set_num_threads(args.threads)
-    micro_bs = args.micro_bs or (16 if args.device == "cuda" else 4)
+    micro_bs = args.micro_bs or 4
     seed = 0 if untuned else args.seed
     torch.manual_seed(seed)
 

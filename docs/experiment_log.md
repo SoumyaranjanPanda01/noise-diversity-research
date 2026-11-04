@@ -42,3 +42,13 @@ scoring (D4), answer-only loss + passage truncation (D5; 15/4,000 truncated).
 free cloud GPU via the notebook (D6).
 
 **Next.** Push → run the notebook (GPU smoke cell first) → copy `results/` back → `analyze.py` → write up `docs/results.md`.
+
+## 2026-11-04 — GPU smoke test: CUDA OOM at micro-batch 16
+
+The first Colab T4 smoke run (`fold_a/mixed3_f0.50`, `--max-steps 5`) failed with `torch.OutOfMemoryError`
+in the first forward pass: 14.0 GiB allocated by PyTorch on the 14.56 GiB T4 at micro-batch 16 (padded
+sequences up to ~500 tokens). Fix: the default micro-batch is now 4 on all devices, with gradient
+accumulation ×4 to keep the protocol's effective batch of 16. The loss is already normalised by the token
+count of the full 16-example batch, so the accumulated gradient equals the full-batch gradient (protocol
+unchanged). Also set `PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True`. No results were affected:
+smoke runs are excluded from the analysis.
