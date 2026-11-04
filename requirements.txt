@@ -22,3 +22,5 @@ pytest>=8.0.0
 
 # Tracking & Utilities
 tqdm>=4.66.0
+# Plotting (analysis figures)
+matplotlib>=3.8.0

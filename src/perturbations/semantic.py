@@ -51,7 +51,9 @@ def get_wordnet_synonyms(word: str) -> list[str]:
             name = lemma.name().replace("_", " ")
             if name.lower() != word.lower() and " " not in name:
                 syns.add(name)
-    return list(syns)
+    # sorted(): set iteration order depends on PYTHONHASHSEED, which made rng.choice
+    # non-reproducible across processes even with a fixed seed.
+    return sorted(syns)
 
 
 def apply_synonym(

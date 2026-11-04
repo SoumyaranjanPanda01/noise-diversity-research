@@ -25,9 +25,14 @@ htmlcov/
 # Notebook checkpoints
 .ipynb_checkpoints/
 
-# Generated experiment outputs
-results/*
-!results/.gitkeep
+# Generated experiment outputs: adapter weights are large and reproducible -> ignored.
+# Run records (configs, step logs, metrics, per-item predictions, registry, analysis) are tracked.
+results/checkpoints/
+results/logs/
+results/predictions/
+results/runs/*__smoke/
+results/runs/*__gpusmoke/
+results/runs/*/stdout.log
 
 # Local editor and operating-system files
 .vscode/

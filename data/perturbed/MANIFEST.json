@@ -1,0 +1,179 @@
+{
+  "shared/clean": {
+    "path": "data/splits/train.jsonl",
+    "sha256_lf": "35dea7b559cf129195a6744960ccda40d543a1a3cf20db0aff98eab4011bfe9d",
+    "n": 4000,
+    "composition": {
+      "clean": 4000
+    }
+  },
+  "shared/neftune": {
+    "path": "data/splits/train.jsonl",
+    "sha256_lf": "35dea7b559cf129195a6744960ccda40d543a1a3cf20db0aff98eab4011bfe9d",
+    "n": 4000,
+    "composition": {
+      "clean": 4000
+    }
+  },
+  "fold_a/single_typo": {
+    "path": "data/perturbed/train_fold_a_typo.jsonl",
+    "sha256_lf": "d90a0ff317a168f675ad692c718a010ade6c284580514b35f1b3a3dc0dfa57b6",
+    "n": 4000,
+    "composition": {
+      "clean": 2000,
+      "typo": 2000
+    }
+  },
+  "fold_a/single_formatting": {
+    "path": "data/perturbed/train_fold_a_formatting.jsonl",
+    "sha256_lf": "f465f501b0fe7ab7c220ce810bf3548fb7d0ebd87255cd04c3d6e64eabde3919",
+    "n": 4000,
+    "composition": {
+      "clean": 2000,
+      "formatting": 2000
+    }
+  },
+  "fold_a/single_deletion": {
+    "path": "data/perturbed/train_fold_a_deletion.jsonl",
+    "sha256_lf": "59eaceaaa9574d9ce034458ec876c35a3de7f30915a427797a25905dce3510e0",
+    "n": 4000,
+    "composition": {
+      "clean": 2000,
+      "deletion": 2000
+    }
+  },
+  "fold_a/mixed3_f0.50": {
+    "path": "data/perturbed/train_fold_a_mixed3.jsonl",
+    "sha256_lf": "b81b36a64e26ccdad4bd41d601a151aac2ed3d7edd8f6ab27481eadabdfe713d",
+    "n": 4000,
+    "composition": {
+      "clean": 2000,
+      "typo": 667,
+      "formatting": 667,
+      "deletion": 666
+    }
+  },
+  "fold_a/mixed3_f0.10": {
+    "path": "data/perturbed/train_fold_a_mixed3_f0.10.jsonl",
+    "sha256_lf": "5f8494f98d6b954f044607282932827a9322d3452de1bb57f42b16018626114f",
+    "n": 4000,
+    "composition": {
+      "clean": 3600,
+      "typo": 133,
+      "formatting": 133,
+      "deletion": 134
+    }
+  },
+  "fold_a/mixed3_f0.25": {
+    "path": "data/perturbed/train_fold_a_mixed3_f0.25.jsonl",
+    "sha256_lf": "851d594150385b2dbbfdb41b8f75b7a440328ad10ca809f79e3fe91f9dbbae32",
+    "n": 4000,
+    "composition": {
+      "clean": 3000,
+      "typo": 333,
+      "formatting": 333,
+      "deletion": 334
+    }
+  },
+  "fold_a/mixed3_f1.00": {
+    "path": "data/perturbed/train_fold_a_mixed3_f1.00.jsonl",
+    "sha256_lf": "3b59cac2922c8168b41aea765050bca62642a1cea4b6eebf2698415e6c5e6f66",
+    "n": 4000,
+    "composition": {
+      "typo": 1333,
+      "formatting": 1333,
+      "deletion": 1334
+    }
+  },
+  "fold_a/augment": {
+    "path": "data/perturbed/train_fold_a_augment.jsonl",
+    "sha256_lf": "c06d0992c807a94d6391db2b84cca2b68549e262bd2b497ddf57a47ecdd59000",
+    "n": 4000,
+    "composition": {
+      "clean": 2000,
+      "eda_rd": 982,
+      "eda_ri": 1018
+    }
+  },
+  "fold_b/single_shuffle": {
+    "path": "data/perturbed/train_fold_b_shuffle.jsonl",
+    "sha256_lf": "4cc2d34c479d649b70a72689c56ca84fec14416b5c2c78a683fd5119a35aae8a",
+    "n": 4000,
+    "composition": {
+      "clean": 2000,
+      "shuffle": 2000
+    }
+  },
+  "fold_b/single_distractor": {
+    "path": "data/perturbed/train_fold_b_distractor.jsonl",
+    "sha256_lf": "c6f25d09fc011fd12bb754322316d65c92b29d2c8313b04b2fe87de74186058e",
+    "n": 4000,
+    "composition": {
+      "clean": 2000,
+      "distractor": 2000
+    }
+  },
+  "fold_b/single_synonym": {
+    "path": "data/perturbed/train_fold_b_synonym.jsonl",
+    "sha256_lf": "0cd2cffddf7a943eb36868bdc18f5db4a7e20b67eb77ed16813b820152e7f26e",
+    "n": 4000,
+    "composition": {
+      "clean": 2000,
+      "synonym": 2000
+    }
+  },
+  "fold_b/mixed3_f0.50": {
+    "path": "data/perturbed/train_fold_b_mixed3.jsonl",
+    "sha256_lf": "4d7371ebf437c19f7e08864ffa453fb9ef1206558119c6e38a3fe693341e12bb",
+    "n": 4000,
+    "composition": {
+      "clean": 2000,
+      "shuffle": 667,
+      "distractor": 667,
+      "synonym": 666
+    }
+  },
+  "fold_b/mixed3_f0.10": {
+    "path": "data/perturbed/train_fold_b_mixed3_f0.10.jsonl",
+    "sha256_lf": "84216a603abe1ba65de21834d59bd14c63a19c7388c73c8b2361c8674c40c82e",
+    "n": 4000,
+    "composition": {
+      "clean": 3600,
+      "shuffle": 133,
+      "distractor": 133,
+      "synonym": 134
+    }
+  },
+  "fold_b/mixed3_f0.25": {
+    "path": "data/perturbed/train_fold_b_mixed3_f0.25.jsonl",
+    "sha256_lf": "34012c83cd0f71f47685a48bfb8d17423a1980cc6ea353bc8cc2b6e44baac385",
+    "n": 4000,
+    "composition": {
+      "clean": 3000,
+      "shuffle": 333,
+      "distractor": 333,
+      "synonym": 334
+    }
+  },
+  "fold_b/mixed3_f1.00": {
+    "path": "data/perturbed/train_fold_b_mixed3_f1.00.jsonl",
+    "sha256_lf": "7d9dcdfe15ae85e9cf3089a84c028e0532b6d3989f54c99767e4229256ca83ce",
+    "n": 4000,
+    "composition": {
+      "shuffle": 1333,
+      "distractor": 1333,
+      "synonym": 1334
+    }
+  },
+  "fold_b/augment": {
+    "path": "data/perturbed/train_fold_b_augment.jsonl",
+    "sha256_lf": "aec4ec025aa93b7aa50d73a4a3621716e5adc12ea72d3a461b9834a7d7220c74",
+    "n": 4000,
+    "composition": {
+      "clean": 2000,
+      "eda_rs": 648,
+      "eda_sr": 660,
+      "eda_ri": 692
+    }
+  }
+}
