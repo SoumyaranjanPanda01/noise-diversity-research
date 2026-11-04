@@ -40,8 +40,8 @@ python scripts/analyze.py                 # stats -> results/analysis/summary.{m
 ```
 
 A GPU is effectively required (a single run is ~14 h on a laptop CPU). Use
-[`notebooks/run_experiments_gpu.ipynb`](notebooks/run_experiments_gpu.ipynb) on Colab or Kaggle
-(free T4). It is resumable, and on Colab it keeps results on Google Drive.
+[`notebooks/run_experiments_gpu.ipynb`](notebooks/run_experiments_gpu.ipynb) on Colab
+(free T4). It is resumable and keeps results on Google Drive.
 
 One run: `python scripts/train.py --condition fold_a/mixed3_f0.50 --seed 0`.
 Debug: add `--max-steps 3 --eval-limit 32 --tag smoke`. Tagged runs are excluded from the registry and the analysis.
