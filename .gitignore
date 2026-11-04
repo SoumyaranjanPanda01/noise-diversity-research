@@ -39,3 +39,20 @@ results/runs/*/stdout.log
 .idea/
 .DS_Store
 Thumbs.db
+
+# Personal lab notebook / local documents (kept off GitHub)
+*.docx
+~$*
+
+# Secrets and local environment
+.env
+.env.*
+*.pem
+*.key
+
+# Large/unneeded local data and model files
+data/raw/
+*.safetensors
+*.bin
+*.pt
+*.ckpt

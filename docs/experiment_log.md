@@ -1,6 +1,6 @@
 # Experiment log
 
-Continues the dated lab notebook in `noise-diversity.docx` (entries 26–28 Oct 2026: protocol,
+Continues the lab notebook kept outside the repo (`noise-diversity.docx`, not tracked: protocol,
 perturbation families, data splits, quality gate, untuned-baseline script). Newest entries at the bottom.
 
 ## 2026-11-04 — Training/eval/analysis code; data reproducibility fix
