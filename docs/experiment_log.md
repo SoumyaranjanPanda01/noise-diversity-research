@@ -3,7 +3,7 @@
 Continues the lab notebook kept outside the repo (`noise-diversity.docx`, not tracked: protocol,
 perturbation families, data splits, quality gate, untuned-baseline script). Newest entries at the bottom.
 
-## 2026-11-04 — Training/eval/analysis code; data reproducibility fix
+## Training/eval/analysis code; data reproducibility fix
 
 **State found.** Data splits and perturbed files were done; `eval_baseline.py` existed but had not been run
 (`results/` was empty); no training code; `tests/test_semantic_perturbations.py` failed at import
@@ -43,7 +43,7 @@ free cloud GPU via the notebook (D6).
 
 **Next.** Push → run the notebook (GPU smoke cell first) → copy `results/` back → `analyze.py` → write up `docs/results.md`.
 
-## 2026-11-04 — GPU smoke test: CUDA OOM at micro-batch 16
+## GPU smoke test: CUDA OOM at micro-batch 16
 
 The first Colab T4 smoke run (`fold_a/mixed3_f0.50`, `--max-steps 5`) failed with `torch.OutOfMemoryError`
 in the first forward pass: 14.0 GiB allocated by PyTorch on the 14.56 GiB T4 at micro-batch 16 (padded
@@ -52,3 +52,23 @@ accumulation ×4 to keep the protocol's effective batch of 16. The loss is alrea
 count of the full 16-example batch, so the accumulated gradient equals the full-batch gradient (protocol
 unchanged). Also set `PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True`. No results were affected:
 smoke runs are excluded from the analysis.
+
+## Notebook dependency fix; evidence table verified
+
+**Notebook.** `torchao>=0.16.0` was added to the notebook's pip install cell. The other pinned versions
+(`transformers==5.21.0`, `peft==0.21.2`) are unchanged, and the cell sources were re-saved in Colab's
+list-of-lines format (no code changes). `COLAB_RESUME_GUIDE.pdf` (a personal resume guide) is local only and
+listed in `.gitignore`.
+
+**Evidence table** (`docs/evidence_table.md`). All six entries were checked against the original arXiv PDFs.
+14 claims in the earlier draft were corrected (listed under the table). Main corrections: [1] uses four base
+models and six instruction-only perturbation types, and sweeps the perturbed fraction at a fixed dataset size
+(volume "Partially" controlled); [2] has no noisy-task-SFT baseline and its perturbations are adversarial;
+[3] evaluates on the clean test set only; [6] trains single types only. A synthesis section was added: no
+paper varies diversity at a fixed corruption volume, and no text paper tests on held-out perturbation
+families, so a null result from our study would still be informative. Downloaded PDFs are kept in
+`references/` (git-ignored).
+
+**State.** No training results yet (`results/runs/` is empty).
+
+**Next.** Run the notebook matrix on Colab → copy `results/` back → `analyze.py` → write up `docs/results.md`.
