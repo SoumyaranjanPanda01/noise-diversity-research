@@ -59,3 +59,6 @@ data/raw/
 
 # Personal Colab resume guide (local only)
 COLAB_RESUME_GUIDE.pdf
+
+# Downloaded reference papers (local only)
+references/
