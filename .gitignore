@@ -56,3 +56,6 @@ data/raw/
 *.bin
 *.pt
 *.ckpt
+
+# Personal Colab resume guide (local only)
+COLAB_RESUME_GUIDE.pdf
