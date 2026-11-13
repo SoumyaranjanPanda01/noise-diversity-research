@@ -105,3 +105,18 @@ deletion 77.5%, shuffle 82.3%, distractor 100%, synonym 79.7% (training sets are
 **Paper.** First full LaTeX draft at `paper/main.tex`: single file, bibliography embedded, figures drawn in pgfplots
 (no image files), appendix after the references, no LaTeX comments, `\typeout` line after `\end{document}`, as the
 arXiv upload checklist requires. Not compiled yet (no TeX installation on the dev laptop).
+
+## 2026-11-14: Commit messages reworded
+
+Commit messages from `7024296` onward were reworded (content unchanged; every rewritten commit has the same git tree
+hash as the original). The `git_commit` field in `results/runs/*/run_config.json` keeps the original hashes. Mapping
+to the current history:
+
+| original | current | note |
+|---|---|---|
+| `4962e62` | `ada5bbf` | same tree as `6749884` (an earlier copy of that commit) |
+| `6749884` | `ada5bbf` | |
+| `3070f53` | `6bda014` | |
+| `b30db8a` | `61fb0fe` | |
+| `7024296` | `a848629` | |
+| `61385da` | `51a8a60` | |

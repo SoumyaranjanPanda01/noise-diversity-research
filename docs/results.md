@@ -14,7 +14,9 @@ exceeds the cross-seed SD of the effect.
 * **Training data**: every run's `train_data_sha256_lf` matches `data/perturbed/MANIFEST.json`.
 * **Code**: runs were made at three commits (`4962e62`: 4 runs, `3070f53`: 8, `b30db8a`: 43). `src/`, `scripts/`
   and `configs/` are identical across all three. The commits differ only in docs, `.gitignore` and the
-  notebook.
+  notebook. Commit messages were later reworded, which changed the hashes but not the content (git tree
+  hashes are identical). The run records keep the original hashes, which map to the current history as follows:
+  `4962e62` and `6749884` → `ada5bbf`, `3070f53` → `6bda014`, `b30db8a` → `61fb0fe`.
 * **Excluded debug run**: `fold_a__mixed3_f0.50__s0__gpusmoke` (5 steps, 32 eval items, tagged) was the GPU
   smoke test. The analysis excludes it automatically and it is git-ignored.
 * **Repeated runs**: after Colab session resumes, three runs were executed twice (`fold_b/mixed3_f0.25`
