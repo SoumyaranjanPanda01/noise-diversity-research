@@ -72,3 +72,21 @@ families, so a null result from our study would still be informative. Downloaded
 **State.** No training results yet (`results/runs/` is empty).
 
 **Next.** Run the notebook matrix on Colab → copy `results/` back → `analyze.py` → write up `docs/results.md`.
+
+## 2026-11-14: Full matrix complete; results analysed
+
+**Runs.** All 55 runs (18 conditions × 3 seeds + untuned) completed on Colab T4 between 2026-11-04 and
+2026-11-13. Records were downloaded as `results_export.zip` and unpacked into `results/`. Checks: every
+training-data sha256 matches `MANIFEST.json`; all runs have 500 steps and micro-batch 4; code (`src/`, `scripts/`,
+`configs/`) is identical across the three commits the runs were made at; every `train_log.jsonl` has steps
+1 to 500 in order. Three runs were executed twice after session resumes (duplicate registry rows) and gave identical
+accuracies both times. The `__gpusmoke` debug run is excluded.
+
+**Export bug.** The notebook's last cell wrote the zip to `../results_export.zip` from inside `results/`, which
+is a symlink to Google Drive, so the zip landed on the Drive FUSE mount and failed ("zip I/O error: Operation
+not supported"). Fixed to write to `/content/results_export.zip`.
+
+**Analysis.** `analyze.py` on Colab and locally gave identical `summary.md` / `summary.json`. Primary result is
+null (pooled −0.14 pp, CI [−0.59, +0.31]). Full write-up: `docs/results.md`.
+
+**Next.** arXiv paper draft.

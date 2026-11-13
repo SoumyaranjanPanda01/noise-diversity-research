@@ -1,0 +1,33 @@
+{
+  "val_acc_by_epoch": [
+    {
+      "epoch": 0,
+      "step": 250,
+      "val_acc": 0.794
+    },
+    {
+      "epoch": 1,
+      "step": 500,
+      "val_acc": 0.812
+    }
+  ],
+  "trainable_params": 8798208,
+  "total_params": 502830976,
+  "val_acc": 0.812,
+  "test_acc": {
+    "clean": 0.798,
+    "typo": 0.784,
+    "formatting": 0.777,
+    "deletion": 0.76,
+    "shuffle": 0.79,
+    "distractor": 0.795,
+    "synonym": 0.763
+  },
+  "steps": 500,
+  "total_steps_planned": 500,
+  "train_time_s": 2069.6,
+  "eval_time_s": 635.0,
+  "final_loss_avg20": 0.08416,
+  "n_passages_truncated": 53,
+  "finished_utc": "2026-11-10T06:10:26+00:00"
+}

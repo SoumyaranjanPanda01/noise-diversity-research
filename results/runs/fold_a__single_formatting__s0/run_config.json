@@ -1,0 +1,72 @@
+{
+  "run_id": "fold_a__single_formatting__s0",
+  "condition": "fold_a/single_formatting",
+  "seed": 0,
+  "tag": null,
+  "category": "single",
+  "fold": "fold_a",
+  "corruption_fraction": 0.5,
+  "neftune": false,
+  "train_data": "data/perturbed/train_fold_a_formatting.jsonl",
+  "train_data_sha256_lf": "f465f501b0fe7ab7c220ce810bf3548fb7d0ebd87255cd04c3d6e64eabde3919",
+  "config": {
+    "_comment": "Frozen training/eval hyperparameters from docs/protocol_v1.md. Edit only after dev-set justification, and log the change in docs/deviations.md.",
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "lora": {
+      "r": 16,
+      "alpha": 32,
+      "dropout": 0.05,
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ]
+    },
+    "optim": {
+      "lr": 0.0002,
+      "weight_decay": 0.0,
+      "warmup_ratio": 0.03,
+      "schedule": "cosine",
+      "max_grad_norm": 1.0
+    },
+    "epochs": 2,
+    "effective_batch_size": 16,
+    "max_seq_len": 512,
+    "neftune_alpha": 5.0,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "system_prompt": "You are a helpful assistant. Read the passage and answer the question with only 'Yes' or 'No'.",
+    "eval_sets": {
+      "clean": "data/splits/test.jsonl",
+      "typo": "data/perturbed/test_typo.jsonl",
+      "formatting": "data/perturbed/test_formatting.jsonl",
+      "deletion": "data/perturbed/test_deletion.jsonl",
+      "shuffle": "data/perturbed/test_shuffle.jsonl",
+      "distractor": "data/perturbed/test_distractor.jsonl",
+      "synonym": "data/perturbed/test_synonym.jsonl"
+    },
+    "val_set": "data/splits/val.jsonl"
+  },
+  "micro_batch": 4,
+  "max_steps_override": null,
+  "eval_limit": null,
+  "git_commit": "4962e6253132d1187b9d636561d6d2a6625495e5",
+  "started_utc": "2026-11-04T11:36:25+00:00",
+  "env": {
+    "python": "3.13.16",
+    "torch": "2.11.0+cu130",
+    "transformers": "5.21.0",
+    "peft": "0.21.2",
+    "device": "cuda",
+    "threads": 1,
+    "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+    "gpu": "Tesla T4"
+  }
+}

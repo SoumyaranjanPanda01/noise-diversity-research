@@ -32,7 +32,7 @@ results/logs/
 results/predictions/
 results/runs/*__smoke/
 results/runs/*__gpusmoke/
-results/runs/*/stdout.log
+results/runs/*/stdout*.log
 
 # Local editor and operating-system files
 .vscode/

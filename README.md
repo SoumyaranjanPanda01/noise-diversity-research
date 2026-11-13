@@ -14,7 +14,7 @@ Model: Qwen2.5-0.5B-Instruct + LoRA (r=16, α=32). Task: BoolQ (4,000 train / 50
 
 Full protocol: [`docs/protocol_v1.md`](docs/protocol_v1.md) · deviations & decisions:
 [`docs/deviations.md`](docs/deviations.md) · lab log: [`docs/experiment_log.md`](docs/experiment_log.md) ·
-related work: [`docs/evidence_table.md`](docs/evidence_table.md).
+related work: [`docs/evidence_table.md`](docs/evidence_table.md) · **results: [`docs/results.md`](docs/results.md)**.
 
 ## Conditions (18 × 3 seeds = 54 training runs + 1 untuned eval)
 

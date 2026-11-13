@@ -1,0 +1,19 @@
+{
+  "val_acc_by_epoch": [],
+  "val_acc": 0.626,
+  "test_acc": {
+    "clean": 0.605,
+    "typo": 0.559,
+    "formatting": 0.563,
+    "deletion": 0.599,
+    "shuffle": 0.595,
+    "distractor": 0.374,
+    "synonym": 0.5
+  },
+  "steps": 0,
+  "train_time_s": 0.0,
+  "eval_time_s": 499.8,
+  "final_loss_avg20": null,
+  "n_passages_truncated": 36,
+  "finished_utc": "2026-11-04T10:12:04+00:00"
+}
