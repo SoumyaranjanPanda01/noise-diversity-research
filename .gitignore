@@ -62,3 +62,17 @@ COLAB_RESUME_GUIDE.pdf
 
 # Downloaded reference papers (local only)
 references/
+
+# Personal arXiv upload checklist (local only)
+arxiv guidelines.pdf
+
+# LaTeX build outputs for the paper (the source is paper/main.tex)
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.blg
+paper/*.bbl
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.synctex.gz
+paper/*.pdf

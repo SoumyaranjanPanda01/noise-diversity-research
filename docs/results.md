@@ -110,6 +110,27 @@ Figure: `results/analysis/volume_sweep.png`.
   by less than 1 pp, so there is little room for transfer to show.
 * The cells in this table are descriptive means. No CIs are computed for them.
 
+## Exploratory: the distractor gap is an answer bias
+
+Not pre-registered. Source: `scripts/diag_distractor.py` → `results/analysis/distractor_bias.{md,json}`.
+The gold "Yes" rate on the test set is 63.4%.
+
+| condition | test set | predicted Yes | acc on gold Yes | acc on gold No | acc |
+|---|---|---|---|---|---|
+| untuned | clean | 37.1 | 48.1 | 82.0 | 60.5 |
+| untuned | distractor | 0.8 | 1.3 | 100.0 | 37.4 |
+| clean | clean | 64.7 ± 0.8 | 84.3 ± 0.5 | 69.3 ± 1.9 | 78.8 ± 0.7 |
+| clean | distractor | 38.8 ± 6.6 | 49.7 ± 7.2 | 80.1 ± 6.5 | 60.8 ± 3.2 |
+| fold A Mixed-3 | distractor | 31.1 ± 6.7 | 41.0 ± 7.7 | 86.2 ± 5.6 | 57.5 ± 3.2 |
+| fold B Mixed-3 | distractor | 65.1 ± 1.7 | 84.8 ± 1.1 | 69.1 ± 3.0 | 79.1 ± 0.8 |
+| fold B single distractor | distractor | 65.3 ± 1.3 | 84.9 ± 1.4 | 68.6 ± 1.7 | 78.9 ± 0.8 |
+
+An appended distractor sentence mainly pushes the model towards answering "No". The untuned model almost never
+says "Yes", and clean fine-tuning reduces but does not remove the shift. The large seed SD on this family tracks how
+large the shift is. Any model that saw distractor examples in training, including fold B's Mixed-3 with only 667 of
+them, answers "Yes" at its clean-input rate. Caveat: the distractor test and training sets draw from the same pool of
+8 sentences, so the in-family gain may partly reflect familiarity with those sentences.
+
 ## Summary
 
 1. **Primary hypothesis: not supported.** Mixing three perturbation families does not beat single-family

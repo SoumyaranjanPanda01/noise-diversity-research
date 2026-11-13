@@ -90,3 +90,18 @@ not supported"). Fixed to write to `/content/results_export.zip`.
 null (pooled −0.14 pp, CI [−0.59, +0.31]). Full write-up: `docs/results.md`.
 
 **Next.** arXiv paper draft.
+
+## 2026-11-14: Distractor diagnostic; paper draft
+
+**Exploratory diagnostic** (`scripts/diag_distractor.py`, not pre-registered). The distractor drop is mostly an
+answer bias towards "No": the untuned model predicts "Yes" on 0.8% of distractor items (37.1% on clean), and the clean
+model on 38.8% (64.7% on clean) against a gold rate of 63.4%. Models trained with distractor examples, including fold B
+Mixed-3 with only 667 of them, are back at their clean rate. Added to `docs/results.md`.
+
+**Data facts for the paper.** Share of test questions actually changed by each family: typo 80.0%, formatting 98.1%,
+deletion 77.5%, shuffle 82.3%, distractor 100%, synonym 79.7% (training sets are similar). Mean run time on T4:
+1,973 s training + 584 s evaluation.
+
+**Paper.** First full LaTeX draft at `paper/main.tex`: single file, bibliography embedded, figures drawn in pgfplots
+(no image files), appendix after the references, no LaTeX comments, `\typeout` line after `\end{document}`, as the
+arXiv upload checklist requires. Not compiled yet (no TeX installation on the dev laptop).
