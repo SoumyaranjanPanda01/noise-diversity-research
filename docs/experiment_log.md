@@ -120,3 +120,24 @@ to the current history:
 | `b30db8a` | `61fb0fe` | |
 | `7024296` | `a848629` | |
 | `61385da` | `51a8a60` | |
+
+## 2026-11-14: Pre-submission review; paper fixes
+
+**Review.** The paper, code, protocol and logs were reviewed for submission readiness. Main weaknesses a reviewer
+is likely to raise: little headroom (five of six families cost the clean model at most 3.7 pp), one 0.5B model and
+one task, three seeds, asymmetric folds, and the shared 8-sentence distractor pool. All are already in Limitations.
+
+**Citations checked.** The three most recent references exist with the cited authors and IDs: Li & Sen 2026
+(arXiv:2604.12469), Alajrami et al. 2025 (arXiv:2510.03528, published at IJCNLP-AACL 2025), Agrawal et al. 2025
+(arXiv:2504.02733, ICLR 2025 workshop). The repository URL in the paper is public (HTTP 200).
+
+**New data fact.** 136 of the 1,000 test passages also appear verbatim in the training split (BoolQ reuses passages
+across questions). No test question appears in training. All conditions share the same training passages, so the
+contrasts are unaffected.
+
+**Paper changes** (`paper/main.tex`, `arxiv/ax.tar` rebuilt):
+* Alajrami et al. venue corrected to "Proceedings of IJCNLP-AACL".
+* `\typeout{get arXiv to do 4 passes...}` moved to just before `\end{document}` so TeX executes it in every case.
+* One sentence on the passage overlap added to the data section.
+
+**Still open (author's decision).** Citing Shi et al. 2023 (GSM-IC) next to the distractor analysis after reading it.

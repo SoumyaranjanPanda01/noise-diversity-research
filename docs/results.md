@@ -152,3 +152,12 @@ them, answers "Yes" at its clean-input rate. Caveat: the distractor test and tra
 * The five non-distractor families produce small accuracy drops, which limits the power of any
   diversity-vs-single comparison on them.
 * Secondary contrasts are uncorrected for multiplicity, and the sweep has no inferential test.
+* Train/test passage overlap: BoolQ pairs some Wikipedia passages with several questions, and 136 of the 1,000
+  test passages also appear verbatim in the training split (no test question does). Every condition trains on the
+  same passages, so this can raise absolute accuracy but does not favour any condition. Found during the
+  2026-11-14 pre-submission review; now stated in the paper's data section.
+* Distractor construction: the distractor is appended to the question with no separating punctuation, and the
+  training and test versions share one pool of 8 sentences. Both may contribute to the "No" bias and to the
+  size of the in-family gain.
+* Only the question is perturbed, and all six families are synthetic. Results may differ for perturbed passages
+  or natural noise (real typos, speech-recognition errors).

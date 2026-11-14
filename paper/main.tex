@@ -73,7 +73,7 @@ To our knowledge, no prior text study varies perturbation diversity at a fixed c
 
 \subsection{Task, model, and data}
 
-We use BoolQ \citep{clark2019boolq}, a reading-comprehension task where each item is a passage, a yes/no question, and a binary answer. Short, exactly scorable answers make accuracy unambiguous. We take the first 6{,}000 items of the BoolQ training split, in dataset order, and partition them into 4{,}000 training, 500 validation, 500 development, and 1{,}000 test items. The gold answer is ``Yes'' for 63.4\% of test items. The base model is Qwen2.5-0.5B-Instruct \citep{qwen2025qwen25}, prompted with a fixed system instruction to answer only ``Yes'' or ``No'' to a \emph{Passage}/\emph{Question} pair in the model's chat template.
+We use BoolQ \citep{clark2019boolq}, a reading-comprehension task where each item is a passage, a yes/no question, and a binary answer. Short, exactly scorable answers make accuracy unambiguous. We take the first 6{,}000 items of the BoolQ training split, in dataset order, and partition them into 4{,}000 training, 500 validation, 500 development, and 1{,}000 test items. The gold answer is ``Yes'' for 63.4\% of test items. BoolQ pairs some Wikipedia passages with several questions, and 136 of the 1{,}000 test passages also occur in the training split, although no test question does. Every condition trains on the same passages, so this overlap can raise absolute accuracy but does not favour any condition. The base model is Qwen2.5-0.5B-Instruct \citep{qwen2025qwen25}, prompted with a fixed system instruction to answer only ``Yes'' or ``No'' to a \emph{Passage}/\emph{Question} pair in the model's chat template.
 
 \subsection{Perturbation families}
 
@@ -321,7 +321,7 @@ Aryan Agrawal, Lisa Alazraki, Shahin Honarvar, and Marek Rei.
 \bibitem[Alajrami et al.(2025)]{alajrami2025noisy}
 Ahmed Alajrami, Xingwei Tan, and Nikolaos Aletras.
 \newblock Fine-tuning on noisy instructions: Effects on generalization and performance.
-\newblock In \emph{Proceedings of AACL}, 2025.
+\newblock In \emph{Proceedings of IJCNLP-AACL}, 2025.
 \newblock arXiv:2510.03528.
 
 \bibitem[Belinkov and Bisk(2018)]{belinkov2018synthetic}
@@ -492,5 +492,5 @@ EDA augment & 79.7$\pm$0.7 & 78.3$\pm$0.2 & 77.6$\pm$0.2 & 76.6$\pm$0.3 & 78.0$\
 \end{tabular}
 \end{table}
 
-\end{document}
 \typeout{get arXiv to do 4 passes: Label(s) may have changed. Rerun}
+\end{document}

@@ -79,3 +79,7 @@ paper/*.pdf
 
 # arXiv upload package (built from paper/main.tex)
 arxiv/
+
+# local-only study guide
+docs/paper_explained.pdf
+scripts/make_paper_guide.py

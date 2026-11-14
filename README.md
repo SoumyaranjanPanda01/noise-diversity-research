@@ -37,6 +37,7 @@ pytest -q                                 # perturbation + condition tests
 python scripts/run_all.py --dry-run       # plan / status (55 runs)
 python scripts/run_all.py                 # resumable; needs a CUDA GPU in practice
 python scripts/analyze.py                 # stats -> results/analysis/summary.{md,json}, figures
+python scripts/diag_distractor.py         # exploratory distractor answer-bias diagnostic
 ```
 
 A GPU is effectively required (a single run is ~14 h on a laptop CPU). Use
