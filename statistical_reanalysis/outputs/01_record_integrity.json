@@ -1,0 +1,519 @@
+{
+  "n_runs_checked": 55,
+  "issues": [],
+  "registry_duplicate_rows": {
+    "fold_b__mixed3_f0.25__s0": 2,
+    "fold_b__mixed3_f0.25__s1": 2,
+    "fold_b__mixed3_f1.00__s1": 2
+  },
+  "environments": {
+    "2.14.1+cu130 / 5.21.0 / 0.21.2 / Tesla T4": 38,
+    "2.11.0+cu130 / 5.21.0 / 0.21.2 / Tesla T4": 17
+  },
+  "analysis_reproduced": {
+    "summary_md_identical": true,
+    "summary_json_identical": true
+  },
+  "ties_exact_half": {
+    "fold_a__augment__s0": {
+      "clean": 5,
+      "typo": 14,
+      "formatting": 6,
+      "deletion": 7,
+      "shuffle": 10,
+      "distractor": 18,
+      "synonym": 10
+    },
+    "fold_a__augment__s1": {
+      "clean": 10,
+      "typo": 10,
+      "formatting": 3,
+      "deletion": 13,
+      "shuffle": 7,
+      "distractor": 11,
+      "synonym": 13
+    },
+    "fold_a__augment__s2": {
+      "clean": 5,
+      "typo": 7,
+      "formatting": 5,
+      "deletion": 4,
+      "shuffle": 8,
+      "distractor": 25,
+      "synonym": 11
+    },
+    "fold_a__mixed3_f0.10__s0": {
+      "clean": 11,
+      "typo": 7,
+      "formatting": 8,
+      "deletion": 12,
+      "shuffle": 9,
+      "distractor": 25,
+      "synonym": 13
+    },
+    "fold_a__mixed3_f0.10__s1": {
+      "clean": 5,
+      "typo": 8,
+      "formatting": 9,
+      "deletion": 6,
+      "shuffle": 8,
+      "distractor": 26,
+      "synonym": 4
+    },
+    "fold_a__mixed3_f0.10__s2": {
+      "clean": 5,
+      "typo": 10,
+      "formatting": 8,
+      "deletion": 11,
+      "shuffle": 13,
+      "distractor": 20,
+      "synonym": 12
+    },
+    "fold_a__mixed3_f0.25__s0": {
+      "clean": 3,
+      "typo": 14,
+      "formatting": 12,
+      "deletion": 7,
+      "shuffle": 4,
+      "distractor": 30,
+      "synonym": 10
+    },
+    "fold_a__mixed3_f0.25__s1": {
+      "clean": 7,
+      "typo": 7,
+      "formatting": 8,
+      "deletion": 7,
+      "shuffle": 7,
+      "distractor": 16,
+      "synonym": 7
+    },
+    "fold_a__mixed3_f0.25__s2": {
+      "clean": 8,
+      "typo": 13,
+      "formatting": 6,
+      "deletion": 12,
+      "shuffle": 12,
+      "distractor": 15,
+      "synonym": 20
+    },
+    "fold_a__mixed3_f0.50__s0": {
+      "clean": 10,
+      "typo": 5,
+      "formatting": 10,
+      "deletion": 8,
+      "shuffle": 6,
+      "distractor": 21,
+      "synonym": 11
+    },
+    "fold_a__mixed3_f0.50__s1": {
+      "clean": 5,
+      "typo": 8,
+      "formatting": 6,
+      "deletion": 12,
+      "shuffle": 11,
+      "distractor": 15,
+      "synonym": 15
+    },
+    "fold_a__mixed3_f0.50__s2": {
+      "clean": 7,
+      "typo": 5,
+      "formatting": 12,
+      "deletion": 10,
+      "shuffle": 11,
+      "distractor": 23,
+      "synonym": 9
+    },
+    "fold_a__mixed3_f1.00__s0": {
+      "clean": 6,
+      "typo": 6,
+      "formatting": 18,
+      "deletion": 3,
+      "shuffle": 9,
+      "distractor": 16,
+      "synonym": 8
+    },
+    "fold_a__mixed3_f1.00__s1": {
+      "clean": 10,
+      "typo": 9,
+      "formatting": 12,
+      "deletion": 16,
+      "shuffle": 6,
+      "distractor": 12,
+      "synonym": 15
+    },
+    "fold_a__mixed3_f1.00__s2": {
+      "clean": 7,
+      "typo": 0,
+      "formatting": 7,
+      "deletion": 10,
+      "shuffle": 8,
+      "distractor": 13,
+      "synonym": 9
+    },
+    "fold_a__single_deletion__s0": {
+      "clean": 4,
+      "typo": 11,
+      "formatting": 12,
+      "deletion": 12,
+      "shuffle": 8,
+      "distractor": 22,
+      "synonym": 8
+    },
+    "fold_a__single_deletion__s1": {
+      "clean": 6,
+      "typo": 8,
+      "formatting": 13,
+      "deletion": 5,
+      "shuffle": 8,
+      "distractor": 17,
+      "synonym": 7
+    },
+    "fold_a__single_deletion__s2": {
+      "clean": 8,
+      "typo": 4,
+      "formatting": 15,
+      "deletion": 7,
+      "shuffle": 4,
+      "distractor": 23,
+      "synonym": 10
+    },
+    "fold_a__single_formatting__s0": {
+      "clean": 10,
+      "typo": 2,
+      "formatting": 9,
+      "deletion": 8,
+      "shuffle": 6,
+      "distractor": 28,
+      "synonym": 11
+    },
+    "fold_a__single_formatting__s1": {
+      "clean": 13,
+      "typo": 7,
+      "formatting": 7,
+      "deletion": 9,
+      "shuffle": 5,
+      "distractor": 7,
+      "synonym": 8
+    },
+    "fold_a__single_formatting__s2": {
+      "clean": 8,
+      "typo": 8,
+      "formatting": 6,
+      "deletion": 10,
+      "shuffle": 17,
+      "distractor": 20,
+      "synonym": 11
+    },
+    "fold_a__single_typo__s0": {
+      "clean": 8,
+      "typo": 9,
+      "formatting": 13,
+      "deletion": 10,
+      "shuffle": 19,
+      "distractor": 14,
+      "synonym": 6
+    },
+    "fold_a__single_typo__s1": {
+      "clean": 10,
+      "typo": 10,
+      "formatting": 5,
+      "deletion": 14,
+      "shuffle": 8,
+      "distractor": 21,
+      "synonym": 11
+    },
+    "fold_a__single_typo__s2": {
+      "clean": 7,
+      "typo": 7,
+      "formatting": 2,
+      "deletion": 16,
+      "shuffle": 12,
+      "distractor": 12,
+      "synonym": 10
+    },
+    "fold_b__augment__s0": {
+      "clean": 4,
+      "typo": 7,
+      "formatting": 11,
+      "deletion": 4,
+      "shuffle": 9,
+      "distractor": 24,
+      "synonym": 10
+    },
+    "fold_b__augment__s1": {
+      "clean": 6,
+      "typo": 3,
+      "formatting": 9,
+      "deletion": 16,
+      "shuffle": 14,
+      "distractor": 21,
+      "synonym": 14
+    },
+    "fold_b__augment__s2": {
+      "clean": 6,
+      "typo": 9,
+      "formatting": 5,
+      "deletion": 6,
+      "shuffle": 11,
+      "distractor": 16,
+      "synonym": 9
+    },
+    "fold_b__mixed3_f0.10__s0": {
+      "clean": 8,
+      "typo": 7,
+      "formatting": 5,
+      "deletion": 11,
+      "shuffle": 9,
+      "distractor": 14,
+      "synonym": 7
+    },
+    "fold_b__mixed3_f0.10__s1": {
+      "clean": 8,
+      "typo": 2,
+      "formatting": 7,
+      "deletion": 9,
+      "shuffle": 9,
+      "distractor": 15,
+      "synonym": 9
+    },
+    "fold_b__mixed3_f0.10__s2": {
+      "clean": 12,
+      "typo": 9,
+      "formatting": 10,
+      "deletion": 13,
+      "shuffle": 5,
+      "distractor": 10,
+      "synonym": 7
+    },
+    "fold_b__mixed3_f0.25__s0": {
+      "clean": 8,
+      "typo": 6,
+      "formatting": 10,
+      "deletion": 8,
+      "shuffle": 9,
+      "distractor": 7,
+      "synonym": 19
+    },
+    "fold_b__mixed3_f0.25__s1": {
+      "clean": 6,
+      "typo": 6,
+      "formatting": 12,
+      "deletion": 13,
+      "shuffle": 7,
+      "distractor": 5,
+      "synonym": 8
+    },
+    "fold_b__mixed3_f0.25__s2": {
+      "clean": 9,
+      "typo": 7,
+      "formatting": 8,
+      "deletion": 9,
+      "shuffle": 6,
+      "distractor": 7,
+      "synonym": 10
+    },
+    "fold_b__mixed3_f0.50__s0": {
+      "clean": 6,
+      "typo": 7,
+      "formatting": 9,
+      "deletion": 10,
+      "shuffle": 10,
+      "distractor": 10,
+      "synonym": 12
+    },
+    "fold_b__mixed3_f0.50__s1": {
+      "clean": 9,
+      "typo": 5,
+      "formatting": 8,
+      "deletion": 9,
+      "shuffle": 3,
+      "distractor": 11,
+      "synonym": 13
+    },
+    "fold_b__mixed3_f0.50__s2": {
+      "clean": 4,
+      "typo": 8,
+      "formatting": 7,
+      "deletion": 8,
+      "shuffle": 17,
+      "distractor": 6,
+      "synonym": 8
+    },
+    "fold_b__mixed3_f1.00__s0": {
+      "clean": 7,
+      "typo": 4,
+      "formatting": 9,
+      "deletion": 11,
+      "shuffle": 6,
+      "distractor": 6,
+      "synonym": 7
+    },
+    "fold_b__mixed3_f1.00__s1": {
+      "clean": 9,
+      "typo": 7,
+      "formatting": 7,
+      "deletion": 11,
+      "shuffle": 5,
+      "distractor": 9,
+      "synonym": 14
+    },
+    "fold_b__mixed3_f1.00__s2": {
+      "clean": 11,
+      "typo": 10,
+      "formatting": 8,
+      "deletion": 11,
+      "shuffle": 8,
+      "distractor": 13,
+      "synonym": 6
+    },
+    "fold_b__single_distractor__s0": {
+      "clean": 8,
+      "typo": 10,
+      "formatting": 10,
+      "deletion": 9,
+      "shuffle": 4,
+      "distractor": 5,
+      "synonym": 10
+    },
+    "fold_b__single_distractor__s1": {
+      "clean": 6,
+      "typo": 8,
+      "formatting": 7,
+      "deletion": 7,
+      "shuffle": 11,
+      "distractor": 15,
+      "synonym": 8
+    },
+    "fold_b__single_distractor__s2": {
+      "clean": 10,
+      "typo": 7,
+      "formatting": 9,
+      "deletion": 5,
+      "shuffle": 10,
+      "distractor": 10,
+      "synonym": 4
+    },
+    "fold_b__single_shuffle__s0": {
+      "clean": 14,
+      "typo": 9,
+      "formatting": 6,
+      "deletion": 8,
+      "shuffle": 8,
+      "distractor": 13,
+      "synonym": 9
+    },
+    "fold_b__single_shuffle__s1": {
+      "clean": 6,
+      "typo": 6,
+      "formatting": 5,
+      "deletion": 6,
+      "shuffle": 4,
+      "distractor": 16,
+      "synonym": 7
+    },
+    "fold_b__single_shuffle__s2": {
+      "clean": 10,
+      "typo": 9,
+      "formatting": 10,
+      "deletion": 5,
+      "shuffle": 8,
+      "distractor": 26,
+      "synonym": 8
+    },
+    "fold_b__single_synonym__s0": {
+      "clean": 3,
+      "typo": 7,
+      "formatting": 6,
+      "deletion": 7,
+      "shuffle": 6,
+      "distractor": 19,
+      "synonym": 10
+    },
+    "fold_b__single_synonym__s1": {
+      "clean": 8,
+      "typo": 9,
+      "formatting": 9,
+      "deletion": 7,
+      "shuffle": 8,
+      "distractor": 19,
+      "synonym": 8
+    },
+    "fold_b__single_synonym__s2": {
+      "clean": 8,
+      "typo": 8,
+      "formatting": 9,
+      "deletion": 6,
+      "shuffle": 8,
+      "distractor": 25,
+      "synonym": 15
+    },
+    "shared__clean__s0": {
+      "clean": 8,
+      "typo": 5,
+      "formatting": 9,
+      "deletion": 8,
+      "shuffle": 7,
+      "distractor": 25,
+      "synonym": 5
+    },
+    "shared__clean__s1": {
+      "clean": 3,
+      "typo": 7,
+      "formatting": 14,
+      "deletion": 9,
+      "shuffle": 7,
+      "distractor": 27,
+      "synonym": 9
+    },
+    "shared__clean__s2": {
+      "clean": 12,
+      "typo": 8,
+      "formatting": 8,
+      "deletion": 10,
+      "shuffle": 16,
+      "distractor": 22,
+      "synonym": 13
+    },
+    "shared__neftune__s0": {
+      "clean": 9,
+      "typo": 11,
+      "formatting": 10,
+      "deletion": 8,
+      "shuffle": 10,
+      "distractor": 31,
+      "synonym": 10
+    },
+    "shared__neftune__s1": {
+      "clean": 5,
+      "typo": 11,
+      "formatting": 12,
+      "deletion": 15,
+      "shuffle": 8,
+      "distractor": 23,
+      "synonym": 17
+    },
+    "shared__neftune__s2": {
+      "clean": 13,
+      "typo": 11,
+      "formatting": 9,
+      "deletion": 13,
+      "shuffle": 8,
+      "distractor": 28,
+      "synonym": 13
+    },
+    "untuned": {
+      "clean": 30,
+      "typo": 22,
+      "formatting": 17,
+      "deletion": 31,
+      "shuffle": 31,
+      "distractor": 1,
+      "synonym": 10
+    }
+  },
+  "ties_summary_trained_runs": {
+    "min": 0,
+    "max": 31,
+    "mean": 9.894179894179894
+  }
+}

@@ -14,7 +14,9 @@ Model: Qwen2.5-0.5B-Instruct + LoRA (r=16, α=32). Task: BoolQ (4,000 train / 50
 
 Full protocol: [`docs/protocol_v1.md`](docs/protocol_v1.md) · deviations & decisions:
 [`docs/deviations.md`](docs/deviations.md) · lab log: [`docs/experiment_log.md`](docs/experiment_log.md) ·
-related work: [`docs/evidence_table.md`](docs/evidence_table.md) · **results: [`docs/results.md`](docs/results.md)** · paper draft: [`paper/main.tex`](paper/main.tex).
+related work: [`docs/evidence_table.md`](docs/evidence_table.md) · **results: [`docs/results.md`](docs/results.md)** ·
+**IEEE paper: [`revised_manuscript/main.tex`](revised_manuscript/main.tex)** ([PDF](revised_manuscript/main.pdf)) ·
+post-hoc reanalysis: [`statistical_reanalysis/`](statistical_reanalysis/) · audit: [`research_audit.md`](research_audit.md).
 
 ## Conditions (18 × 3 seeds = 54 training runs + 1 untuned eval)
 
@@ -38,6 +40,8 @@ python scripts/run_all.py --dry-run       # plan / status (55 runs)
 python scripts/run_all.py                 # resumable; needs a CUDA GPU in practice
 python scripts/analyze.py                 # stats -> results/analysis/summary.{md,json}, figures
 python scripts/diag_distractor.py         # exploratory distractor answer-bias diagnostic
+sh statistical_reanalysis/run_all.sh      # post-hoc reanalysis + paper figures (CPU, ~2 min)
+sh revised_manuscript/build.sh            # reanalysis + compile the IEEE paper
 ```
 
 A GPU is effectively required (a single run is ~14 h on a laptop CPU). Use
@@ -65,3 +69,16 @@ The primary effect is acc(Mixed-3) − mean acc(single families) on the fold's u
 averaged over seeds. The CI is a 10,000-resample paired bootstrap over the 1,000 test questions, applied
 jointly across families, seeds and conditions. An effect counts as meaningful only if the 95% CI excludes 0
 **and** it exceeds the cross-seed SD. A null result is a valid outcome.
+
+## Post-hoc reanalysis (2026-11-20)
+
+Added after all results were known; it does not replace the pre-registered analysis above. No model was
+retrained. Main updates (details: [`research_audit.md`](research_audit.md)):
+
+* With training-seed variance included, the pooled primary interval is about [-0.77, +0.48] pp (the item-only
+  bootstrap gave [-0.59, +0.31]). The null conclusion is unchanged.
+* 136 test *questions* (121 of 969 distinct passages) share a verbatim passage with training, 173 with
+  near-duplicates. Without them, fold A's effect is -0.47 to -0.53 pp with an interval that includes 0.
+* The passage-cluster bootstrap gives practically the same intervals as the item bootstrap.
+* The distractor drop combines a shift towards "No" with a loss of discrimination (AUC 0.85 to 0.73). 133
+  in-family training examples already remove it.

@@ -1,0 +1,29 @@
+{
+  "test_items": 1000,
+  "distinct_test_passages": 969,
+  "items_with_exact_train_passage": 136,
+  "distinct_passages_exact_in_train": 121,
+  "items_with_near_train_passage": 173,
+  "distinct_passages_near_in_train": 154,
+  "train_questions_on_exactly_overlapping_passages": 208,
+  "test_questions_in_train": 0,
+  "n_clusters": 966,
+  "cluster_size_counts": {
+    "1": 935,
+    "2": 29,
+    "3": 1,
+    "4": 1
+  },
+  "exact_passage_group_size_counts": {
+    "1": 941,
+    "2": 26,
+    "3": 1,
+    "4": 1
+  },
+  "gold_yes_rate": {
+    "all": 0.634,
+    "exact_overlap": 0.6617647058823529,
+    "no_exact_overlap": 0.6296296296296297,
+    "no_near_overlap": 0.6311970979443773
+  }
+}
