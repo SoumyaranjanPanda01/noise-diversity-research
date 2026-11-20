@@ -141,3 +141,21 @@ contrasts are unaffected.
 * One sentence on the passage overlap added to the data section.
 
 **Still open (author's decision).** Citing Shi et al. 2023 (GSM-IC) next to the distractor analysis after reading it.
+
+## 2026-11-20: Post-hoc statistical audit; IEEE revision
+
+**No new training or evaluation.** All new numbers come from the stored per-item predictions. Code and outputs:
+`statistical_reanalysis/`. Full write-up: `research_audit.md`. Original records were checksummed before and after
+(`statistical_reanalysis/outputs/original_records_sha256.txt`); nothing in `results/` or `data/` changed.
+
+* Reproduction: `analyze.py` output identical; accuracies recomputed from predictions match `metrics.json` for all 55 runs.
+* Correction: the overlap is 136 test **questions** (121 of 969 distinct passages), not 136 passages; 173 questions
+  counting near-duplicate passages (5-gram Jaccard >= 0.5). Excluding them, fold A becomes -0.47 / -0.53 pp (CI includes 0).
+* Passage-cluster bootstrap: practically identical intervals (935 of 966 clusters are single questions).
+* Seed variance: approximate item+seed pooled interval [-0.77, +0.48] pp; two-stage bootstrap [-0.92, +0.62].
+* New disclosures: exact p(Yes) = 0.5 ties (median 9 per run and test version, fp16) are scored "No"; runs used
+  PyTorch 2.11.0 (17) and 2.14.1 (38).
+* Distractor: Yes-rate shift -25.9 pp for the clean model, but AUC also falls 0.852 -> 0.728; label-free
+  re-thresholding recovers 41% of the drop. 133 distractor training examples (fold B Mixed-3 at 0.10) suffice.
+* Revised 6-page IEEE manuscript: `revised_manuscript/`. Earlier drafts (arXiv/ACL/8-page IEEE) and the arXiv upload
+  folder were removed from the working tree; `paper/main.tex` remains in git history (`c96c067`).

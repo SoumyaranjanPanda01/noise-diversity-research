@@ -57,29 +57,16 @@ data/raw/
 *.pt
 *.ckpt
 
-# Personal Colab resume guide (local only)
-COLAB_RESUME_GUIDE.pdf
-
-# Downloaded reference papers (local only)
+# Local-only files (never committed)
 references/
+noise-diversity.docx
 
-# Personal arXiv upload checklist (local only)
-arxiv guidelines.pdf
-
-# LaTeX build outputs for the paper (the source is paper/main.tex)
-paper/*.aux
-paper/*.log
-paper/*.out
-paper/*.blg
-paper/*.bbl
-paper/*.fls
-paper/*.fdb_latexmk
-paper/*.synctex.gz
-paper/*.pdf
-
-# arXiv upload package (built from paper/main.tex)
-arxiv/
-
-# local-only study guide
-docs/paper_explained.pdf
-scripts/make_paper_guide.py
+# LaTeX build outputs for the IEEE paper (source: revised_manuscript/main.tex; main.pdf is tracked)
+revised_manuscript/*.aux
+revised_manuscript/*.log
+revised_manuscript/*.out
+revised_manuscript/*.blg
+revised_manuscript/*.bbl
+revised_manuscript/*.fls
+revised_manuscript/*.fdb_latexmk
+revised_manuscript/*.synctex.gz
